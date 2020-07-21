@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 function Student(){
-    const url = ` https://www.hatchways.io/api/assessment/students`
+    const url = `https://www.hatchways.io/api/assessment/students`
     const [student, setStudent] = useState(null)
     const [searchedName, setSearchedName] = useState("");
     const handleChange = event => {
@@ -20,18 +20,13 @@ function Student(){
         })
     }, [url])
 
-
-    console.log(student)
-
     if(student){
         let people = student.students.map(a => a.firstName);
-        console.log(people)
         const searchedResults = !searchedName
         ? people
         : people.filter(person =>
             person.toLowerCase().includes(searchedName.toLocaleLowerCase())
       );
-      console.log(searchedResults)
          content = 
         <div>
             <div>
@@ -47,22 +42,22 @@ function Student(){
             <ul>
                 {
                     student.students.map(stud => {
-                        if(searchedResults.includes(stud.firstName))
-                        {
-                        return (<li key={stud.id}>
-                            <div>
-                            <img className="left-0 no-wrap"
-                                src={stud.pic}
-                                alt={stud.firstName}
-                            />
-                            <p className="text-2xl font-bold mb-3">{stud.firstName}</p>
-                            <p className="text-2xl mb-3">Email: {stud.email}</p>
-                            <p className="text-2xl mb-3">Company: {stud.company}</p>
-                            <p className="text-2xl mb-3">Skill: {stud.skill}</p>
-                            <p className="text-2xl mb-3">Average: {stud.grades.reduce((all, one, _, src) => all += one / src.length, 0)}%</p>
-                            </div>
-                        </li>
-                        )
+                        if(searchedResults.includes(stud.firstName)){
+                            return (
+                            <li key={stud.id}>
+                                <div>
+                                <img className="left-0 no-wrap"
+                                    src={stud.pic}
+                                    alt={stud.firstName}
+                                />
+                                <p className="text-2xl font-bold mb-3">{stud.firstName}</p>
+                                <p className="text-2xl mb-3">Email: {stud.email}</p>
+                                <p className="text-2xl mb-3">Company: {stud.company}</p>
+                                <p className="text-2xl mb-3">Skill: {stud.skill}</p>
+                                <p className="text-2xl mb-3">Average: {stud.grades.reduce((all, one, _, src) => all += one / src.length, 0)}%</p>
+                                </div>
+                            </li>
+                            )
                         }
                     })
                 }

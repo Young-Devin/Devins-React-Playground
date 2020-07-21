@@ -5,7 +5,7 @@ function NavigationMenu(props){
     return(
         <div>
             <div className="font-bold py-3">
-                Devin's Portfolio
+                Devin's React Project
             </div>
             <ul>
                 <li>
@@ -14,7 +14,7 @@ function NavigationMenu(props){
                         className="text-blue-500 py-3 border-t border-b block"
                         onClick={props.closeMenu}
                     >
-                        Home
+                        Gallery
                     </Link>
                 </li>
                 <li>
