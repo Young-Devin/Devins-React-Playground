@@ -46,8 +46,10 @@ function Student(){
             </div>
             <ul>
                 {
-                    student.students.map(stud => (
-                        <li key={stud.id}>
+                    student.students.map(stud => {
+                        if(searchedResults.includes(stud.firstName))
+                        {
+                        return (<li key={stud.id}>
                             <div>
                             <img className="left-0 no-wrap"
                                 src={stud.pic}
@@ -60,7 +62,9 @@ function Student(){
                             <p className="text-2xl mb-3">Average: {stud.grades.reduce((all, one, _, src) => all += one / src.length, 0)}%</p>
                             </div>
                         </li>
-                    ))
+                        )
+                        }
+                    })
                 }
             </ul>
 
