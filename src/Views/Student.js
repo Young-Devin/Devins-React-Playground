@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { useParams } from 'react-router-dom'
 
 function Student(){
     const url = `https://www.hatchways.io/api/assessment/students`
     const [student, setStudent] = useState(null)
+    const [grades, setGrades] = useState(null)
     const [searchedName, setSearchedName] = useState("");
     const handleChange = event => {
         setSearchedName(event.target.value);
@@ -55,6 +58,16 @@ function Student(){
                                 <p className="text-2xl mb-3">Company: {stud.company}</p>
                                 <p className="text-2xl mb-3">Skill: {stud.skill}</p>
                                 <p className="text-2xl mb-3">Average: {stud.grades.reduce((all, one, _, src) => all += one / src.length, 0)}%</p>
+                                <span className="collapsible">
+                                    <FontAwesomeIcon
+                                        icon={faArrowDown}
+                                        onClick={() => setGrades(!grades)}
+                                    />
+                                
+                                </span>
+                                <ul className={grades ? "grade" : null}>
+                                    {stud.grades.map(grade => <li className="text-lg mb-3"> {grade} </li>)}
+                                </ul>
                                 </div>
                             </li>
                             )
