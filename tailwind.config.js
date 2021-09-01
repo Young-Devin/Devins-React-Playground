@@ -1,10 +1,9 @@
 module.exports = {
-  purge: {
-    content: ['./src/**/*.html', './src/**/*.js'],
-    options: {
-      keyframes: true,
-    },
-  },
+  purge: [
+    './src/**/*.html',
+    './src/**/*.js',
+    './src/**/*.css',
+  ],
   theme: {
     extend: {
       backgroundColor:{
