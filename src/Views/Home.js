@@ -5,7 +5,7 @@ import ProductCard from '../Components/ProductCard'
 import { useAxiosGet } from '../Hooks/HttpRequests'
 
 function Home(){
-    const url = `http://5f08bc41445d080016691c85.mockapi.io/products?page=1&limit=10`
+    const url = `https://5f08bc41445d080016691c85.mockapi.io/products?page=1&limit=10`
 
     let products = useAxiosGet(url)
 
