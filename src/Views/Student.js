@@ -65,9 +65,9 @@ function Student(){
                                     />
                                 
                                 </span>
-                                <ul className={grades ? "grade" : null}>
+                                {/* <ul className={grades ? "grade" : null}>
                                     {stud.grades.map(grade => <li className="text-lg mb-3"> {grade} </li>)}
-                                </ul>
+                                </ul> */}
                                 </div>
                             </li>
                             )
